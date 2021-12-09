@@ -5,12 +5,10 @@ const app = Vue.createApp({
       message: 'Vue is great!',
     };
   },
-
   methods: {
     saveInput(event) {
       this.currentUserInput = event.target.value;
     },
-
     setText() {
       this.message = this.currentUserInput;
     },
@@ -19,9 +17,21 @@ const app = Vue.createApp({
 
 app.mount('#app');
 
+const app2 = Vue.createApp({
+  data() {
+    return {
+      favoriteMeal: 'Pizza',
+    };
+  },
+});
+
+app2.mount('#app2');
+
+// ....
+
 const data = {
   message: 'Hello!',
-  longMessage: 'Hello, World!',
+  longMessage: 'Hello! World!',
 };
 
 const handler = {
@@ -29,13 +39,12 @@ const handler = {
     if (key === 'message') {
       target.longMessage = value + ' World!';
     }
-
     target.message = value;
   },
 };
 
 const proxy = new Proxy(data, handler);
 
-proxy.message = 'Hello Vue';
+proxy.message = 'Hello!!!!';
 
 console.log(proxy.longMessage);
